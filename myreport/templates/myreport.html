@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Language Skill Assessment Graph</title>
+</head>
+<body>
+    <h1>평가현황</h1>
+    <form action="/" method="post">
+        <label for="index_selector">항목 선택:</label>
+        <select name="index_selector" onchange="this.form.submit()">
+            <option value="">모든 항목</option>
+            {% for index in indices %}
+            <option value="{{ index }}" {% if index == selected_index %}selected{% endif %}>{{ index }}</option>
+            {% endfor %}
+        </select>
+
+        <label for="num_dates">최근 날짜 개수: </label>
+        <select name="num_dates" onchange="this.form.submit()">
+            {% for option in [5, 10, 15] %}
+            <option value="{{ option }}" {% if option == num_dates %}selected{% endif %}>{{ option }}</option>
+            {% endfor %}
+        </select>
+
+        <label for="start_date">시작일:</label>
+        <input type="date" name="start_date" value="{{ start_date }}" onchange="this.form.submit()">
+
+        <label for="end_date">종료일:</label>
+        <input type="date" name="end_date" value="{{ end_date }}" onchange="this.form.submit()">
+    </form>
+    <img src="data:image/png;base64,{{ image_data }}" alt="Language Skill Assessment Graph">
+</body>
+</html>
