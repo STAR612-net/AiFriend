@@ -60,7 +60,7 @@
                 <td>{{ s.gender }}</td>
                 <td>{{ s.role }}</td>
                 <td><button onclick="location.href='{{ url_for('main.myreport_by_id', id=s.id) }}'">바로가기</button></td>
-                <td><button onclick="location.href='{{ url_for('main.delete_user_by_id', id=s.id) }}'">삭제</button></td>
+                <td><button onclick="return confirmDeletion('{{ url_for('main.delete_user_by_id', id=s.id) }}')">삭제</button></td>
             </tr>
             {% endfor %}
         </table>
@@ -74,6 +74,14 @@
 {% endblock %}
 
 {% block scripts %}
+    <script>
+        function confirmDeletion(url){
+            if (confirm('정말로 삭제하시겠습니까?')){
+                window.location.href = url;
+            }
+            return false; // 버튼 클릭 시 기본 동작(페이지 이동)을 방지
+        }
+    </script>
 <!-- <script src="{{ url_for('static', filename='js/mypage.js') }}"></script> -->
 {% endblock %}
 
