@@ -5,6 +5,7 @@
 *.bak
 *.db
 *.sql
+*.pyc
 # dbConfig.js
 
 ## 폴더

@@ -7,7 +7,7 @@ import random
 app = create_app()
 
 with app.app_context():
-    user_id = "6856f521-3d73-4c18-a8c8-96185a500691"
+    user_id = "d1836a66-1d56-40dc-ae8f-6874366ea15d"
     start_date = datetime(2024, 8, 12)
     
     # Fetch a topic or create one if none exists

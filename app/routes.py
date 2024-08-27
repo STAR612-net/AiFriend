@@ -36,7 +36,10 @@ def mypage():
 @main_bp.route('/manager')
 @login_required
 def manager():
-    return render_template('manager.html', user=current_user)
+    students = User.query.all()
+    print(students)
+    print(11111)
+    return render_template('manager.html', user=current_user, students = students)
 
 @main_bp.route('/start')
 def start():
@@ -96,6 +99,15 @@ def delete_user():
     flash('Your account has been deleted.', 'info')
     return redirect(url_for('main.index'))
 
+@main_bp.route('/delete_user/<id>')
+def delete_user_by_id(id):
+    user = User.query.filter_by(id=id).first()
+    print(user)
+    db.session.delete(user)
+    db.session.commit()
+
+    return redirect(url_for('main.manager'))
+
 @main_bp.route('/myreport')
 @login_required
 def myreport():
@@ -103,6 +115,14 @@ def myreport():
     start_of_week = today - timedelta(days=today.weekday())
     end_of_week = start_of_week + timedelta(days=6)
     return render_template('myreport.html', user=current_user)
+
+@main_bp.route('/report/<id>')
+def myreport_by_id(id):
+    today = datetime.utcnow()
+    start_of_week = today - timedelta(days=today.weekday())
+    end_of_week = start_of_week + timedelta(days=6)
+    user = User.query.filter_by(id=id).first()
+    return render_template('myreport.html', user = user)
 
 @main_bp.errorhandler(404)
 def page_not_found(e):

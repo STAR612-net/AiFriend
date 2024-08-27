@@ -1,14 +1,113 @@
-2024-08-23 17:41:52,432 ERROR: Failed to save AI test result: (pymysql.err.IntegrityError) (1452, 'Cannot add or update a child row: a foreign key constraint fails (`aifriend`.`ai_chat_test`, CONSTRAINT `ai_chat_test_ibfk_1` FOREIGN KEY (`topic_id`) REFERENCES `topic` (`topic_id`))')
-[SQL: INSERT INTO ai_chat_test (`chatTest_id`, user_id, `chatDate`, topic_id, fluency, grammar, vocabulary, content, `simpleEvaluation`) VALUES (%(chatTest_id)s, %(user_id)s, %(chatDate)s, %(topic_id)s, %(fluency)s, %(grammar)s, %(vocabulary)s, %(content)s, %(simpleEvaluation)s)]
-[parameters: {'chatTest_id': '4a539bc5-15d8-42ee-ab62-8494944dd797', 'user_id': 'test_user', 'chatDate': datetime.datetime(2024, 8, 23, 8, 41, 52, 376244), 'topic_id': '1', 'fluency': 6, 'grammar': 7, 'vocabulary': 5, 'content': 8, 'simpleEvaluation': "You're doing great."}]
-(Background on this error at: https://sqlalche.me/e/20/gkpj) [in C:\project\sesac\aiFriend\app\ai_chat.py:81]
-2024-08-23 17:41:52,452 ERROR: Failed to save the test result to the database, but proceeding to send the response. [in C:\project\sesac\aiFriend\app\ai_chat.py:137]
-2024-08-23 17:44:28,389 INFO: App startup [in C:\project\sesac\aiFriend\app\__init__.py:46]
-2024-08-23 21:20:42,632 INFO: App startup [in C:\project\sesac\aiFriend\app\__init__.py:46]
-2024-08-23 22:09:01,098 INFO: App startup [in C:\project\sesac\aiFriend\app\__init__.py:46]
-2024-08-23 22:19:47,669 INFO: App startup [in C:\project\sesac\aiFriend\app\__init__.py:46]
-2024-08-24 12:01:40,729 INFO: App startup [in C:\project\sesac\aiFriend\app\__init__.py:46]
-2024-08-24 12:09:07,559 INFO: App startup [in C:\project\sesac\aiFriend\app\__init__.py:54]
-2024-08-24 12:46:29,716 INFO: App startup [in C:\project\sesac\aiFriend\app\__init__.py:54]
-2024-08-24 12:46:59,571 INFO: App startup [in C:\project\sesac\aiFriend\app\__init__.py:54]
-2024-08-24 12:48:15,059 INFO: App startup [in C:\project\sesac\aiFriend\app\__init__.py:54]
+2024-08-24 12:48:49,232 ERROR: Error during registration for user begite: (pymysql.err.ProgrammingError) (1146, "Table 'aifriend.user' doesn't exist")
+[SQL: INSERT INTO user (user_id, id, password, `nickName`, birth_date, `createdAt`, `updatedAt`, `role`, `socialLogin`, withdrawal, gender) VALUES (%(user_id)s, %(id)s, %(password)s, %(nickName)s, %(birth_date)s, %(createdAt)s, %(updatedAt)s, %(role)s, %(socialLogin)s, %(withdrawal)s, %(gender)s)]
+[parameters: {'user_id': '0e289f69-bd77-48b4-b420-7e9e659aadfe', 'id': 'begite', 'password': 'scrypt:32768:8:1$rXXqVqgovlUB7xb1$f317476c49235ebacc9e80df3180d280a278eafe170772843a7d0174ffa16d00a99911e2992af8f173ea7e84d2d5d6c19e3794d0d5a28f30cfcde526323878eb', 'nickName': '작은별', 'birth_date': datetime.date(1999, 1, 1), 'createdAt': datetime.datetime(2024, 8, 24, 3, 48, 49, 230338), 'updatedAt': None, 'role': 'student', 'socialLogin': 0, 'withdrawal': 0, 'gender': 'male'}]
+(Background on this error at: https://sqlalche.me/e/20/f405) [in C:\project\sesac\aiFriend\app\auth\routes.py:52]
+Traceback (most recent call last):
+  File "C:\Users\begit\anaconda3\envs\py310_sesac\lib\site-packages\sqlalchemy\engine\base.py", line 1967, in _exec_single_context
+    self.dialect.do_execute(
+  File "C:\Users\begit\anaconda3\envs\py310_sesac\lib\site-packages\sqlalchemy\engine\default.py", line 924, in do_execute
+    cursor.execute(statement, parameters)
+  File "C:\Users\begit\anaconda3\envs\py310_sesac\lib\site-packages\pymysql\cursors.py", line 153, in execute
+    result = self._query(query)
+  File "C:\Users\begit\anaconda3\envs\py310_sesac\lib\site-packages\pymysql\cursors.py", line 322, in _query
+    conn.query(q)
+  File "C:\Users\begit\anaconda3\envs\py310_sesac\lib\site-packages\pymysql\connections.py", line 563, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "C:\Users\begit\anaconda3\envs\py310_sesac\lib\site-packages\pymysql\connections.py", line 825, in _read_query_result
+    result.read()
+  File "C:\Users\begit\anaconda3\envs\py310_sesac\lib\site-packages\pymysql\connections.py", line 1199, in read
+    first_packet = self.connection._read_packet()
+  File "C:\Users\begit\anaconda3\envs\py310_sesac\lib\site-packages\pymysql\connections.py", line 775, in _read_packet
+    packet.raise_for_error()
+  File "C:\Users\begit\anaconda3\envs\py310_sesac\lib\site-packages\pymysql\protocol.py", line 219, in raise_for_error
+    err.raise_mysql_exception(self._data)
+  File "C:\Users\begit\anaconda3\envs\py310_sesac\lib\site-packages\pymysql\err.py", line 150, in raise_mysql_exception
+    raise errorclass(errno, errval)
+pymysql.err.ProgrammingError: (1146, "Table 'aifriend.user' doesn't exist")
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\project\sesac\aiFriend\app\auth\routes.py", line 43, in join
+    db.session.commit()
+  File "C:\Users\begit\anaconda3\envs\py310_sesac\lib\site-packages\sqlalchemy\orm\scoping.py", line 597, in commit
+    return self._proxied.commit()
+  File "C:\Users\begit\anaconda3\envs\py310_sesac\lib\site-packages\sqlalchemy\orm\session.py", line 2017, in commit
+    trans.commit(_to_root=True)
+  File "<string>", line 2, in commit
+  File "C:\Users\begit\anaconda3\envs\py310_sesac\lib\site-packages\sqlalchemy\orm\state_changes.py", line 139, in _go
+    ret_value = fn(self, *arg, **kw)
+  File "C:\Users\begit\anaconda3\envs\py310_sesac\lib\site-packages\sqlalchemy\orm\session.py", line 1302, in commit
+    self._prepare_impl()
+  File "<string>", line 2, in _prepare_impl
+  File "C:\Users\begit\anaconda3\envs\py310_sesac\lib\site-packages\sqlalchemy\orm\state_changes.py", line 139, in _go
+    ret_value = fn(self, *arg, **kw)
+  File "C:\Users\begit\anaconda3\envs\py310_sesac\lib\site-packages\sqlalchemy\orm\session.py", line 1277, in _prepare_impl
+    self.session.flush()
+  File "C:\Users\begit\anaconda3\envs\py310_sesac\lib\site-packages\sqlalchemy\orm\session.py", line 4341, in flush
+    self._flush(objects)
+  File "C:\Users\begit\anaconda3\envs\py310_sesac\lib\site-packages\sqlalchemy\orm\session.py", line 4476, in _flush
+    with util.safe_reraise():
+  File "C:\Users\begit\anaconda3\envs\py310_sesac\lib\site-packages\sqlalchemy\util\langhelpers.py", line 146, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File "C:\Users\begit\anaconda3\envs\py310_sesac\lib\site-packages\sqlalchemy\orm\session.py", line 4437, in _flush
+    flush_context.execute()
+  File "C:\Users\begit\anaconda3\envs\py310_sesac\lib\site-packages\sqlalchemy\orm\unitofwork.py", line 466, in execute
+    rec.execute(self)
+  File "C:\Users\begit\anaconda3\envs\py310_sesac\lib\site-packages\sqlalchemy\orm\unitofwork.py", line 642, in execute
+    util.preloaded.orm_persistence.save_obj(
+  File "C:\Users\begit\anaconda3\envs\py310_sesac\lib\site-packages\sqlalchemy\orm\persistence.py", line 93, in save_obj
+    _emit_insert_statements(
+  File "C:\Users\begit\anaconda3\envs\py310_sesac\lib\site-packages\sqlalchemy\orm\persistence.py", line 1048, in _emit_insert_statements
+    result = connection.execute(
+  File "C:\Users\begit\anaconda3\envs\py310_sesac\lib\site-packages\sqlalchemy\engine\base.py", line 1418, in execute
+    return meth(
+  File "C:\Users\begit\anaconda3\envs\py310_sesac\lib\site-packages\sqlalchemy\sql\elements.py", line 515, in _execute_on_connection
+    return connection._execute_clauseelement(
+  File "C:\Users\begit\anaconda3\envs\py310_sesac\lib\site-packages\sqlalchemy\engine\base.py", line 1640, in _execute_clauseelement
+    ret = self._execute_context(
+  File "C:\Users\begit\anaconda3\envs\py310_sesac\lib\site-packages\sqlalchemy\engine\base.py", line 1846, in _execute_context
+    return self._exec_single_context(
+  File "C:\Users\begit\anaconda3\envs\py310_sesac\lib\site-packages\sqlalchemy\engine\base.py", line 1986, in _exec_single_context
+    self._handle_dbapi_exception(
+  File "C:\Users\begit\anaconda3\envs\py310_sesac\lib\site-packages\sqlalchemy\engine\base.py", line 2353, in _handle_dbapi_exception
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+  File "C:\Users\begit\anaconda3\envs\py310_sesac\lib\site-packages\sqlalchemy\engine\base.py", line 1967, in _exec_single_context
+    self.dialect.do_execute(
+  File "C:\Users\begit\anaconda3\envs\py310_sesac\lib\site-packages\sqlalchemy\engine\default.py", line 924, in do_execute
+    cursor.execute(statement, parameters)
+  File "C:\Users\begit\anaconda3\envs\py310_sesac\lib\site-packages\pymysql\cursors.py", line 153, in execute
+    result = self._query(query)
+  File "C:\Users\begit\anaconda3\envs\py310_sesac\lib\site-packages\pymysql\cursors.py", line 322, in _query
+    conn.query(q)
+  File "C:\Users\begit\anaconda3\envs\py310_sesac\lib\site-packages\pymysql\connections.py", line 563, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "C:\Users\begit\anaconda3\envs\py310_sesac\lib\site-packages\pymysql\connections.py", line 825, in _read_query_result
+    result.read()
+  File "C:\Users\begit\anaconda3\envs\py310_sesac\lib\site-packages\pymysql\connections.py", line 1199, in read
+    first_packet = self.connection._read_packet()
+  File "C:\Users\begit\anaconda3\envs\py310_sesac\lib\site-packages\pymysql\connections.py", line 775, in _read_packet
+    packet.raise_for_error()
+  File "C:\Users\begit\anaconda3\envs\py310_sesac\lib\site-packages\pymysql\protocol.py", line 219, in raise_for_error
+    err.raise_mysql_exception(self._data)
+  File "C:\Users\begit\anaconda3\envs\py310_sesac\lib\site-packages\pymysql\err.py", line 150, in raise_mysql_exception
+    raise errorclass(errno, errval)
+sqlalchemy.exc.ProgrammingError: (pymysql.err.ProgrammingError) (1146, "Table 'aifriend.user' doesn't exist")
+[SQL: INSERT INTO user (user_id, id, password, `nickName`, birth_date, `createdAt`, `updatedAt`, `role`, `socialLogin`, withdrawal, gender) VALUES (%(user_id)s, %(id)s, %(password)s, %(nickName)s, %(birth_date)s, %(createdAt)s, %(updatedAt)s, %(role)s, %(socialLogin)s, %(withdrawal)s, %(gender)s)]
+[parameters: {'user_id': '0e289f69-bd77-48b4-b420-7e9e659aadfe', 'id': 'begite', 'password': 'scrypt:32768:8:1$rXXqVqgovlUB7xb1$f317476c49235ebacc9e80df3180d280a278eafe170772843a7d0174ffa16d00a99911e2992af8f173ea7e84d2d5d6c19e3794d0d5a28f30cfcde526323878eb', 'nickName': '작은별', 'birth_date': datetime.date(1999, 1, 1), 'createdAt': datetime.datetime(2024, 8, 24, 3, 48, 49, 230338), 'updatedAt': None, 'role': 'student', 'socialLogin': 0, 'withdrawal': 0, 'gender': 'male'}]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2024-08-24 12:52:33,052 INFO: App startup [in C:\project\sesac\aiFriend\app\__init__.py:54]
+2024-08-24 12:53:01,645 INFO: App startup [in C:\project\sesac\aiFriend\app\__init__.py:54]
+2024-08-24 12:53:14,395 INFO: App startup [in C:\project\sesac\aiFriend\app\__init__.py:54]
+2024-08-24 12:54:43,521 INFO: New user registered: begite [in C:\project\sesac\aiFriend\app\auth\routes.py:45]
+2024-08-24 12:59:11,387 INFO: App startup [in C:\project\sesac\aiFriend\app\__init__.py:54]
+2024-08-24 13:00:19,479 INFO: App startup [in C:\project\sesac\aiFriend\app\__init__.py:54]
+2024-08-24 13:02:28,700 INFO: App startup [in C:\project\sesac\aiFriend\app\__init__.py:54]
+2024-08-24 13:19:57,293 INFO: App startup [in C:\project\sesac\aiFriend\app\__init__.py:54]
+2024-08-24 13:20:29,354 INFO: User logged in: user2 [in C:\project\sesac\aiFriend\app\auth\routes.py:71]
+2024-08-24 13:20:52,667 INFO: User logged in: user2 [in C:\project\sesac\aiFriend\app\auth\routes.py:71]
+2024-08-24 13:35:18,857 INFO: App startup [in C:\project\sesac\aiFriend\app\__init__.py:54]
+2024-08-24 13:36:33,391 INFO: New user registered: abc1234 [in C:\project\sesac\aiFriend\app\auth\routes.py:42]
+2024-08-24 13:36:45,173 INFO: User logged in: abc1234 [in C:\project\sesac\aiFriend\app\auth\routes.py:67]
+2024-08-24 15:38:59,248 INFO: App startup [in C:\project\sesac\aiFriend\app\__init__.py:54]
+2024-08-24 15:40:36,755 INFO: User logged in: abc1234 [in C:\project\sesac\aiFriend\app\auth\routes.py:67]

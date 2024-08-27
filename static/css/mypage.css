@@ -31,7 +31,6 @@ button {
 
 
 .mypage {
-    width: 100%;
     display: flex;
     flex-direction: row;
     padding: 15px;
@@ -45,7 +44,6 @@ button {
 
 .myreport-info {
     display: flex;
-    flex-direction: row;
     padding: 15px;
     background-color: white;
     border-radius: 8px;

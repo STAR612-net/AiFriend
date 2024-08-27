@@ -1,7 +1,7 @@
 <!-- mypage.html 화면 -->
 {% extends "base.html" %}
 
-{% block title %}Ai 영어친구 - 나의 가입정보{% endblock %}
+{% block title %}Ai 영어친구 - 관리자 페이지{% endblock %}
 
 {% block head %}
 <link href="{{ url_for('static', filename='css/manager.css') }}" rel="stylesheet">
@@ -39,6 +39,31 @@
             <h3>현재 레벨: STARTER</h3>
             <img src="{{ url_for('static', filename='images/characters/starter/ch00_1.gif') }}" id="mycharacter" alt="캐릭터 이미지">
         </div>
+    </div>
+    <div id="title_sub"><h2>|| {{ user.nickName | default('Unknown User') }}의 사용자정보</h2></div>
+    <div class="mypage">
+        <table id="userTable">
+            <tr>
+                <th>아이디</th>
+                <th>닉네임</th>
+                <th>출생년도</th>
+                <th>성별</th>
+                <th>사용자 분류</th>
+                <th>학습현황</th>
+                <th>사용자 삭제</th>
+            </tr>
+            {% for s in students %}
+            <tr>
+                <td>{{ s.id }}</td>
+                <td>{{ s.nickName }}</td>
+                <td>{{ s.birth_date.year }}</td>
+                <td>{{ s.gender }}</td>
+                <td>{{ s.role }}</td>
+                <td><button onclick="location.href='{{ url_for('main.myreport_by_id', id=s.id) }}'">바로가기</button></td>
+                <td><button onclick="location.href='{{ url_for('main.delete_user_by_id', id=s.id) }}'">삭제</button></td>
+            </tr>
+            {% endfor %}
+        </table>
     </div>
     
 </div>

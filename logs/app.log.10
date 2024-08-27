@@ -1,59 +1,75 @@
-2024-08-10 18:32:32,760 ERROR: Failed to save AI test result: (pymysql.err.IntegrityError) (1452, 'Cannot add or update a child row: a foreign key constraint fails (`aifriend`.`ai_chat_test`, CONSTRAINT `ai_chat_test_ibfk_1` FOREIGN KEY (`topic_id`) REFERENCES `topic` (`topic_id`))')
-[SQL: INSERT INTO ai_chat_test (`chatTest_id`, user_id, `chatDate`, topic_id, fluency, grammar, vocabulary, content, `simpleEvaluation`) VALUES (%(chatTest_id)s, %(user_id)s, %(chatDate)s, %(topic_id)s, %(fluency)s, %(grammar)s, %(vocabulary)s, %(content)s, %(simpleEvaluation)s)]
-[parameters: {'chatTest_id': '2c8a92d2-7546-478a-9493-60d25d3b5e81', 'user_id': 'test_user', 'chatDate': datetime.datetime(2024, 8, 10, 9, 32, 32, 745661), 'topic_id': '1', 'fluency': 7, 'grammar': 6, 'vocabulary': 8, 'content': 9, 'simpleEvaluation': 'Good attempt at expressing opinions'}]
-(Background on this error at: https://sqlalche.me/e/20/gkpj) [in C:\project\sesac\aiFriend\app\ai_chat.py:76]
-2024-08-10 18:32:32,773 ERROR: Failed to save the test result to the database, but proceeding to send the response. [in C:\project\sesac\aiFriend\app\ai_chat.py:130]
-2024-08-10 18:40:45,866 INFO: App startup [in C:\project\sesac\aiFriend\app\__init__.py:51]
-2024-08-10 18:44:05,138 INFO: App startup [in C:\project\sesac\aiFriend\app\__init__.py:51]
-2024-08-10 18:45:52,510 ERROR: Failed to parse AI response: Expecting ',' delimiter: line 1 column 193 (char 192) [in C:\project\sesac\aiFriend\app\ai_chat.py:110]
-2024-08-10 18:45:52,511 ERROR: Error: An error occurred while parsing the AI response. [in C:\project\sesac\aiFriend\app\ai_chat.py:189]
-2024-08-10 18:49:45,342 ERROR: Failed to save AI test result: (pymysql.err.IntegrityError) (1452, 'Cannot add or update a child row: a foreign key constraint fails (`aifriend`.`ai_chat_test`, CONSTRAINT `ai_chat_test_ibfk_1` FOREIGN KEY (`topic_id`) REFERENCES `topic` (`topic_id`))')
-[SQL: INSERT INTO ai_chat_test (`chatTest_id`, user_id, `chatDate`, topic_id, fluency, grammar, vocabulary, content, `simpleEvaluation`) VALUES (%(chatTest_id)s, %(user_id)s, %(chatDate)s, %(topic_id)s, %(fluency)s, %(grammar)s, %(vocabulary)s, %(content)s, %(simpleEvaluation)s)]
-[parameters: {'chatTest_id': '87281ce1-caa8-4b89-94cb-1cbc5b551597', 'user_id': 'cba1234', 'chatDate': datetime.datetime(2024, 8, 10, 9, 49, 45, 318092), 'topic_id': '1', 'fluency': 5, 'grammar': 6, 'vocabulary': 7, 'content': 8, 'simpleEvaluation': 'Good attempt at expressing opinions, but some sentences could be rephrased for better clarity'}]
-(Background on this error at: https://sqlalche.me/e/20/gkpj) [in C:\project\sesac\aiFriend\app\ai_chat.py:76]
-2024-08-10 18:49:45,343 ERROR: Failed to save the test result to the database, but proceeding to send the response. [in C:\project\sesac\aiFriend\app\ai_chat.py:130]
-2024-08-10 18:55:19,359 ERROR: Failed to save AI test result: (pymysql.err.IntegrityError) (1452, 'Cannot add or update a child row: a foreign key constraint fails (`aifriend`.`ai_chat_test`, CONSTRAINT `ai_chat_test_ibfk_1` FOREIGN KEY (`topic_id`) REFERENCES `topic` (`topic_id`))')
-[SQL: INSERT INTO ai_chat_test (`chatTest_id`, user_id, `chatDate`, topic_id, fluency, grammar, vocabulary, content, `simpleEvaluation`) VALUES (%(chatTest_id)s, %(user_id)s, %(chatDate)s, %(topic_id)s, %(fluency)s, %(grammar)s, %(vocabulary)s, %(content)s, %(simpleEvaluation)s)]
-[parameters: {'chatTest_id': '3c1e91d1-001c-4e15-8a18-10eca3d89c3e', 'user_id': 'cba1234', 'chatDate': datetime.datetime(2024, 8, 10, 9, 55, 19, 342496), 'topic_id': '1', 'fluency': 7, 'grammar': 8, 'vocabulary': 6, 'content': 5, 'simpleEvaluation': 'Good fluency and grammar, but vocabulary could be more varied.'}]
-(Background on this error at: https://sqlalche.me/e/20/gkpj) [in C:\project\sesac\aiFriend\app\ai_chat.py:76]
-2024-08-10 18:55:19,360 ERROR: Failed to save the test result to the database, but proceeding to send the response. [in C:\project\sesac\aiFriend\app\ai_chat.py:130]
-2024-08-10 18:58:01,505 ERROR: Failed to save AI test result: (pymysql.err.IntegrityError) (1452, 'Cannot add or update a child row: a foreign key constraint fails (`aifriend`.`ai_chat_test`, CONSTRAINT `ai_chat_test_ibfk_1` FOREIGN KEY (`topic_id`) REFERENCES `topic` (`topic_id`))')
-[SQL: INSERT INTO ai_chat_test (`chatTest_id`, user_id, `chatDate`, topic_id, fluency, grammar, vocabulary, content, `simpleEvaluation`) VALUES (%(chatTest_id)s, %(user_id)s, %(chatDate)s, %(topic_id)s, %(fluency)s, %(grammar)s, %(vocabulary)s, %(content)s, %(simpleEvaluation)s)]
-[parameters: {'chatTest_id': '438a9236-20ac-446f-b233-ba9d4cb5f959', 'user_id': 'cba1234', 'chatDate': datetime.datetime(2024, 8, 10, 9, 58, 1, 491219), 'topic_id': '1', 'fluency': 7, 'grammar': 8, 'vocabulary': 6, 'content': 5, 'simpleEvaluation': 'Good fluency and grammar, but vocabulary could be more varied.'}]
-(Background on this error at: https://sqlalche.me/e/20/gkpj) [in C:\project\sesac\aiFriend\app\ai_chat.py:76]
-2024-08-10 18:58:01,506 ERROR: Failed to save the test result to the database, but proceeding to send the response. [in C:\project\sesac\aiFriend\app\ai_chat.py:130]
-2024-08-10 23:40:14,231 INFO: App startup [in C:\project\sesac\aiFriend\app\__init__.py:51]
-2024-08-10 23:55:21,271 INFO: App startup [in C:\project\sesac\aiFriend\app\__init__.py:51]
-2024-08-11 00:01:46,204 ERROR: Failed to save AI test result: (pymysql.err.IntegrityError) (1452, 'Cannot add or update a child row: a foreign key constraint fails (`aifriend`.`ai_chat_test`, CONSTRAINT `ai_chat_test_ibfk_1` FOREIGN KEY (`topic_id`) REFERENCES `topic` (`topic_id`))')
-[SQL: INSERT INTO ai_chat_test (`chatTest_id`, user_id, `chatDate`, topic_id, fluency, grammar, vocabulary, content, `simpleEvaluation`) VALUES (%(chatTest_id)s, %(user_id)s, %(chatDate)s, %(topic_id)s, %(fluency)s, %(grammar)s, %(vocabulary)s, %(content)s, %(simpleEvaluation)s)]
-[parameters: {'chatTest_id': 'f3a3f3ec-391e-4841-8794-7ebbc64d8ecc', 'user_id': 'test_user', 'chatDate': datetime.datetime(2024, 8, 10, 15, 1, 46, 91445), 'topic_id': '1', 'fluency': 7, 'grammar': 8, 'vocabulary': 9, 'content': 8, 'simpleEvaluation': 'Well-structured and clear, with a good flow of ideas.'}]
-(Background on this error at: https://sqlalche.me/e/20/gkpj) [in C:\project\sesac\aiFriend\app\ai_chat.py:76]
-2024-08-11 00:01:46,206 ERROR: Failed to save the test result to the database, but proceeding to send the response. [in C:\project\sesac\aiFriend\app\ai_chat.py:132]
-2024-08-11 00:22:33,011 INFO: App startup [in /home/star/project/AiFriend/app/__init__.py:51]
-2024-08-11 00:27:29,943 ERROR: Failed to save AI test result: (pymysql.err.OperationalError) (1698, "Access denied for user 'root'@'localhost'")
+2024-08-11 00:41:06,487 ERROR: Failed to save the test result to the database, but proceeding to send the response. [in /home/star/project/AiFriend/app/ai_chat.py:132]
+2024-08-11 01:33:02,552 INFO: App startup [in /home/star/project/AiFriend/app/__init__.py:51]
+2024-08-11 07:29:59,498 INFO: App startup [in /home/star/project/AiFriend/app/__init__.py:51]
+2024-08-11 08:53:37,024 ERROR: Failed to save AI test result: (pymysql.err.OperationalError) (1698, "Access denied for user 'root'@'localhost'")
 (Background on this error at: https://sqlalche.me/e/20/e3q8) [in /home/star/project/AiFriend/app/ai_chat.py:76]
-2024-08-11 00:27:29,943 ERROR: Failed to save the test result to the database, but proceeding to send the response. [in /home/star/project/AiFriend/app/ai_chat.py:132]
-2024-08-11 00:29:47,333 INFO: App startup [in /home/star/project/AiFriend/app/__init__.py:51]
-2024-08-11 00:35:12,692 ERROR: Failed to save AI test result: (pymysql.err.OperationalError) (1698, "Access denied for user 'root'@'localhost'")
+2024-08-11 08:53:37,024 ERROR: Failed to save the test result to the database, but proceeding to send the response. [in /home/star/project/AiFriend/app/ai_chat.py:132]
+2024-08-11 09:35:11,651 INFO: App startup [in /home/star/project/AiFriend/app/__init__.py:51]
+2024-08-11 09:35:11,655 INFO: App startup [in /home/star/project/AiFriend/app/__init__.py:51]
+2024-08-11 13:39:45,435 INFO: App startup [in /home/star/project/AiFriend/app/__init__.py:51]
+2024-08-11 13:54:19,434 ERROR: Failed to save AI test result: (pymysql.err.OperationalError) (1698, "Access denied for user 'root'@'localhost'")
 (Background on this error at: https://sqlalche.me/e/20/e3q8) [in /home/star/project/AiFriend/app/ai_chat.py:76]
-2024-08-11 00:35:12,692 ERROR: Failed to save the test result to the database, but proceeding to send the response. [in /home/star/project/AiFriend/app/ai_chat.py:132]
-2024-08-11 00:36:07,487 ERROR: Failed to save AI test result: (pymysql.err.OperationalError) (1698, "Access denied for user 'root'@'localhost'")
+2024-08-11 13:54:19,435 ERROR: Failed to save the test result to the database, but proceeding to send the response. [in /home/star/project/AiFriend/app/ai_chat.py:132]
+2024-08-11 13:55:54,680 ERROR: Failed to parse AI response: Expecting ',' delimiter: line 7 column 94 (char 232) [in /home/star/project/AiFriend/app/ai_chat.py:113]
+2024-08-11 13:55:54,680 ERROR: Error: An error occurred while parsing the AI response. [in /home/star/project/AiFriend/app/ai_chat.py:192]
+2024-08-11 13:56:18,630 ERROR: Failed to parse AI response: No valid JSON content found in AI response [in /home/star/project/AiFriend/app/ai_chat.py:113]
+2024-08-11 13:56:18,630 ERROR: Error: An error occurred while parsing the AI response. [in /home/star/project/AiFriend/app/ai_chat.py:192]
+2024-08-11 13:56:22,918 ERROR: Failed to parse AI response: No valid JSON content found in AI response [in /home/star/project/AiFriend/app/ai_chat.py:113]
+2024-08-11 13:56:22,918 ERROR: Error: An error occurred while parsing the AI response. [in /home/star/project/AiFriend/app/ai_chat.py:192]
+2024-08-11 13:57:17,962 ERROR: Failed to save AI test result: (pymysql.err.OperationalError) (1698, "Access denied for user 'root'@'localhost'")
 (Background on this error at: https://sqlalche.me/e/20/e3q8) [in /home/star/project/AiFriend/app/ai_chat.py:76]
-2024-08-11 00:36:07,487 ERROR: Failed to save the test result to the database, but proceeding to send the response. [in /home/star/project/AiFriend/app/ai_chat.py:132]
-2024-08-11 00:36:39,512 ERROR: Failed to save AI test result: (pymysql.err.OperationalError) (1698, "Access denied for user 'root'@'localhost'")
+2024-08-11 13:57:17,963 ERROR: Failed to save the test result to the database, but proceeding to send the response. [in /home/star/project/AiFriend/app/ai_chat.py:132]
+2024-08-11 13:57:22,037 ERROR: Failed to save AI test result: (pymysql.err.OperationalError) (1698, "Access denied for user 'root'@'localhost'")
 (Background on this error at: https://sqlalche.me/e/20/e3q8) [in /home/star/project/AiFriend/app/ai_chat.py:76]
-2024-08-11 00:36:39,512 ERROR: Failed to save the test result to the database, but proceeding to send the response. [in /home/star/project/AiFriend/app/ai_chat.py:132]
-2024-08-11 00:37:41,151 INFO: App startup [in /home/star/project/AiFriend/app/__init__.py:51]
-2024-08-11 00:37:41,228 INFO: App startup [in /home/star/project/AiFriend/app/__init__.py:51]
-2024-08-11 00:37:41,345 INFO: App startup [in /home/star/project/AiFriend/app/__init__.py:51]
-2024-08-11 00:38:01,985 ERROR: Failed to save AI test result: (pymysql.err.OperationalError) (1698, "Access denied for user 'root'@'localhost'")
+2024-08-11 13:57:22,037 ERROR: Failed to save the test result to the database, but proceeding to send the response. [in /home/star/project/AiFriend/app/ai_chat.py:132]
+2024-08-11 13:57:50,894 ERROR: Failed to save AI test result: (pymysql.err.OperationalError) (1698, "Access denied for user 'root'@'localhost'")
 (Background on this error at: https://sqlalche.me/e/20/e3q8) [in /home/star/project/AiFriend/app/ai_chat.py:76]
-2024-08-11 00:38:01,985 ERROR: Failed to save the test result to the database, but proceeding to send the response. [in /home/star/project/AiFriend/app/ai_chat.py:132]
-2024-08-11 00:40:16,764 ERROR: Failed to save AI test result: (pymysql.err.OperationalError) (1698, "Access denied for user 'root'@'localhost'")
+2024-08-11 13:57:50,894 ERROR: Failed to save the test result to the database, but proceeding to send the response. [in /home/star/project/AiFriend/app/ai_chat.py:132]
+2024-08-11 13:58:23,978 ERROR: Failed to parse AI response: No valid JSON content found in AI response [in /home/star/project/AiFriend/app/ai_chat.py:113]
+2024-08-11 13:58:23,978 ERROR: Error: An error occurred while parsing the AI response. [in /home/star/project/AiFriend/app/ai_chat.py:192]
+2024-08-11 13:59:18,194 ERROR: Failed to save AI test result: (pymysql.err.OperationalError) (1698, "Access denied for user 'root'@'localhost'")
 (Background on this error at: https://sqlalche.me/e/20/e3q8) [in /home/star/project/AiFriend/app/ai_chat.py:76]
-2024-08-11 00:40:16,765 ERROR: Failed to save the test result to the database, but proceeding to send the response. [in /home/star/project/AiFriend/app/ai_chat.py:132]
-2024-08-11 00:40:56,165 ERROR: Failed to save AI test result: (pymysql.err.OperationalError) (1698, "Access denied for user 'root'@'localhost'")
+2024-08-11 13:59:18,194 ERROR: Failed to save the test result to the database, but proceeding to send the response. [in /home/star/project/AiFriend/app/ai_chat.py:132]
+2024-08-11 13:59:22,099 ERROR: Failed to parse AI response: No valid JSON content found in AI response [in /home/star/project/AiFriend/app/ai_chat.py:113]
+2024-08-11 13:59:22,099 ERROR: Error: An error occurred while parsing the AI response. [in /home/star/project/AiFriend/app/ai_chat.py:192]
+2024-08-11 13:59:42,604 ERROR: Failed to parse AI response: Expecting ',' delimiter: line 6 column 34 (char 94) [in /home/star/project/AiFriend/app/ai_chat.py:113]
+2024-08-11 13:59:42,605 ERROR: Error: An error occurred while parsing the AI response. [in /home/star/project/AiFriend/app/ai_chat.py:192]
+2024-08-11 13:59:47,396 ERROR: Failed to parse AI response: Expecting ',' delimiter: line 6 column 34 (char 94) [in /home/star/project/AiFriend/app/ai_chat.py:113]
+2024-08-11 13:59:47,397 ERROR: Error: An error occurred while parsing the AI response. [in /home/star/project/AiFriend/app/ai_chat.py:192]
+2024-08-11 14:00:27,643 ERROR: Failed to save AI test result: (pymysql.err.OperationalError) (1698, "Access denied for user 'root'@'localhost'")
 (Background on this error at: https://sqlalche.me/e/20/e3q8) [in /home/star/project/AiFriend/app/ai_chat.py:76]
-2024-08-11 00:40:56,166 ERROR: Failed to save the test result to the database, but proceeding to send the response. [in /home/star/project/AiFriend/app/ai_chat.py:132]
-2024-08-11 00:41:06,486 ERROR: Failed to save AI test result: (pymysql.err.OperationalError) (1698, "Access denied for user 'root'@'localhost'")
+2024-08-11 14:00:27,643 ERROR: Failed to save the test result to the database, but proceeding to send the response. [in /home/star/project/AiFriend/app/ai_chat.py:132]
+2024-08-11 14:00:46,770 ERROR: Failed to parse AI response: No valid JSON content found in AI response [in /home/star/project/AiFriend/app/ai_chat.py:113]
+2024-08-11 14:00:46,770 ERROR: Error: An error occurred while parsing the AI response. [in /home/star/project/AiFriend/app/ai_chat.py:192]
+2024-08-11 14:01:16,279 ERROR: Failed to save AI test result: (pymysql.err.OperationalError) (1698, "Access denied for user 'root'@'localhost'")
 (Background on this error at: https://sqlalche.me/e/20/e3q8) [in /home/star/project/AiFriend/app/ai_chat.py:76]
+2024-08-11 14:01:16,280 ERROR: Failed to save the test result to the database, but proceeding to send the response. [in /home/star/project/AiFriend/app/ai_chat.py:132]
+2024-08-11 14:01:20,607 ERROR: Failed to parse AI response: No valid JSON content found in AI response [in /home/star/project/AiFriend/app/ai_chat.py:113]
+2024-08-11 14:01:20,607 ERROR: Error: An error occurred while parsing the AI response. [in /home/star/project/AiFriend/app/ai_chat.py:192]
+2024-08-11 14:01:38,088 ERROR: Failed to parse AI response: Expecting ',' delimiter: line 6 column 34 (char 94) [in /home/star/project/AiFriend/app/ai_chat.py:113]
+2024-08-11 14:01:38,089 ERROR: Error: An error occurred while parsing the AI response. [in /home/star/project/AiFriend/app/ai_chat.py:192]
+2024-08-11 14:01:54,487 ERROR: Failed to save AI test result: (pymysql.err.OperationalError) (1698, "Access denied for user 'root'@'localhost'")
+(Background on this error at: https://sqlalche.me/e/20/e3q8) [in /home/star/project/AiFriend/app/ai_chat.py:76]
+2024-08-11 14:01:54,487 ERROR: Failed to save the test result to the database, but proceeding to send the response. [in /home/star/project/AiFriend/app/ai_chat.py:132]
+2024-08-11 14:01:58,747 ERROR: Failed to parse AI response: Expecting ',' delimiter: line 7 column 43 (char 175) [in /home/star/project/AiFriend/app/ai_chat.py:113]
+2024-08-11 14:01:58,748 ERROR: Error: An error occurred while parsing the AI response. [in /home/star/project/AiFriend/app/ai_chat.py:192]
+2024-08-11 14:03:04,675 ERROR: Failed to save AI test result: (pymysql.err.OperationalError) (1698, "Access denied for user 'root'@'localhost'")
+(Background on this error at: https://sqlalche.me/e/20/e3q8) [in /home/star/project/AiFriend/app/ai_chat.py:76]
+2024-08-11 14:03:04,675 ERROR: Failed to save the test result to the database, but proceeding to send the response. [in /home/star/project/AiFriend/app/ai_chat.py:132]
+2024-08-11 14:04:35,644 ERROR: Failed to parse AI response: No valid JSON content found in AI response [in /home/star/project/AiFriend/app/ai_chat.py:113]
+2024-08-11 14:04:35,644 ERROR: Error: An error occurred while parsing the AI response. [in /home/star/project/AiFriend/app/ai_chat.py:192]
+2024-08-11 14:04:39,452 ERROR: Failed to save AI test result: (pymysql.err.OperationalError) (1698, "Access denied for user 'root'@'localhost'")
+(Background on this error at: https://sqlalche.me/e/20/e3q8) [in /home/star/project/AiFriend/app/ai_chat.py:76]
+2024-08-11 14:04:39,453 ERROR: Failed to save the test result to the database, but proceeding to send the response. [in /home/star/project/AiFriend/app/ai_chat.py:132]
+2024-08-11 14:04:47,300 ERROR: Failed to save AI test result: (pymysql.err.OperationalError) (1698, "Access denied for user 'root'@'localhost'")
+(Background on this error at: https://sqlalche.me/e/20/e3q8) [in /home/star/project/AiFriend/app/ai_chat.py:76]
+2024-08-11 14:04:47,300 ERROR: Failed to save the test result to the database, but proceeding to send the response. [in /home/star/project/AiFriend/app/ai_chat.py:132]
+2024-08-11 15:11:12,466 INFO: App startup [in /home/star/project/AiFriend/app/__init__.py:51]
+2024-08-11 15:11:12,569 INFO: App startup [in /home/star/project/AiFriend/app/__init__.py:51]
+2024-08-11 15:11:12,675 INFO: App startup [in /home/star/project/AiFriend/app/__init__.py:51]
+2024-08-12 03:17:32,269 INFO: App startup [in /home/star/project/AiFriend/app/__init__.py:51]
+2024-08-12 10:20:26,931 INFO: App startup [in /home/star/project/AiFriend/app/__init__.py:51]
+2024-08-12 10:20:27,064 INFO: App startup [in /home/star/project/AiFriend/app/__init__.py:51]
+2024-08-12 10:22:12,397 INFO: App startup [in /home/star/project/AiFriend/app/__init__.py:51]
+2024-08-12 10:22:12,504 INFO: App startup [in /home/star/project/AiFriend/app/__init__.py:51]
+2024-08-12 10:23:13,447 INFO: App startup [in /home/star/project/AiFriend/app/__init__.py:51]
