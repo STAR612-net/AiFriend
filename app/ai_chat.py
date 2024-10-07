@@ -105,7 +105,7 @@ def get_response():
 
         # AI 응답 가져오기
         response = ai_client.chat(
-            model="llama3",
+            model="llama3.2",
             messages=context_messages,
             stream=False,
             options={
