@@ -152,7 +152,7 @@ def save_ai_test_result(user_id, topic_id, fluency, grammar, vocabulary, content
     try:
         # `topic_id`가 유효한지 확인
         if not topic_id or not Topic.query.filter_by(topic_id=topic_id).first():
-            topic_id = '8196329c-5a7d-4371-aa96-a2a3ef6f52a3'  # 기본값 처리
+            topic_id = '580ef9d7-b814-4106-95fa-1cdce36983a6'  # 기본값 처리
         
         chat_test = AIChatTest(
             chatTest_id=str(uuid.uuid4()),
@@ -239,7 +239,7 @@ def get_response():
 
         # AI 클라이언트 호출 (변경된 ai_client 사용)
         response = ai_client.chat(
-            model="llama3",
+            model="llama3.2",
             messages=context_messages,
             stream=stream,
             options={
