@@ -1,0 +1,99 @@
+<!-- mypage.html 화면 -->
+{% extends "base.html" %}
+
+{% block title %}Ai 영어친구 - 캐릭터 목록 페이지{% endblock %}
+
+{% block head %}
+<link href="{{ url_for('static', filename='css/manager.css') }}" rel="stylesheet">
+{% endblock %}
+
+{% block content %}
+{% if current_user.is_authenticated %}
+<div id="mypage-container" style="overflow-y: auto;">
+    <div id="title_sub"><h2>|| 캐릭터 상세보기</h2></div>
+    <div class="mypage">
+        <div class="user-info" style="width: 25%">
+            <h2>Preview</h2>
+            <img id="mycharacter" alt="캐릭터 이미지">
+            <h3>현재 레벨: KID 6</h3>
+        </div>
+        <div class="user-character" style="width: 75%; display: block">
+            <table id="userTable">
+                <tr>
+                    <th>이름</th>
+                    <th>KID 레벨</th>
+                    <th>ADULT 레벨</th>
+                    <th>등록일</th>
+                    <th>최종 업데이트</th>
+                </tr>
+                <tr>
+                    <td>{{ character.type }}</td>
+                    <td>{{ kid_count }}</td>
+                    <td>{{ adult_count }}</td>
+                    <td>{{ character.first_registered }}</td>
+                    <td>{{ character.last_update }}</td>
+                </tr>
+            </table>
+            <br>
+            <br>
+            <table id="userTable">
+                <tr>
+                    <th>캐릭터 설명</th>
+                    <th>레벨대분류</th>
+                    <th>
+                        <select onchange="changeValue(this.value), changeImg(this.value, 'basic')" name = "level" id="levelSelect">
+                            <option value="kid">KID</option>
+                            <option value="adult">ADULT</option>
+                        </select>
+                    </th>
+                </tr>
+                <tr>
+                    <td>기본형</td>
+                    <td id="basic"></td>
+                    <td><button onclick="changeImg(document.getElementById('levelSelect').value, 'basic')">미리보기</button></td>
+                </tr>
+                <tr>
+                    <td>말하기</td>
+                    <td id="speak"></td>
+                    <td><button onclick="changeImg(document.getElementById('levelSelect').value, 'speak')">미리보기</button></td>
+                </tr>
+            </table>
+            <button onclick="location.href='{{ url_for('main.character_list') }}'" style="width: 200px">리스트로 돌아가기</button>
+            <button onclick="registerCharacter()">등록하기</button>
+        </div>  
+    </div>
+    
+</div>
+{% else %}
+<p>Please log in to view this page.</p>
+{% endif %}
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const url1 = "images/characters/{{ character.type }}/kid/6-basic.png";
+        const url2 = "images/characters/{{ character.type }}/kid/6-speak.png";
+        document.getElementById('mycharacter').src = '{{ url_for("static", filename="") }}' + url1;;
+
+        document.getElementById('basic').textContent = url1;
+        document.getElementById('speak').textContent = url2;
+    });
+
+    function changeValue(level){
+        const url3 = `images/characters/{{ character.type }}/${level}/6-basic.png`;
+        const url4 = `images/characters/{{ character.type }}/${level}/6-speak.png`;
+
+        document.getElementById('basic').textContent = url3;
+        document.getElementById('speak').textContent = url4;
+    }
+
+    function changeImg(level, action){
+        const url = `images/characters/{{ character.type }}/${level}/6-${action}.png`;
+        document.getElementById('mycharacter').src = '{{ url_for("static", filename="") }}' + url;;
+    }
+
+    function registerCharacter() {
+        const url = "{{ url_for('main.character_register', type=character.type) }}";
+        location.href = url;
+    }
+</script>
+{% endblock %}

@@ -36,10 +36,13 @@ class UserLevel(db.Model):
 class Character(db.Model):
     __tablename__ = 'character'
     character_id = db.Column(db.String(36), primary_key=True, nullable=False)
+    type = db.Column(db.String(50), nullable=False)
+    classes = db.Column('class', db.String(50), nullable=False)
     level_code = db.Column(db.String(10), nullable=False)  # 예: K1, A1 등
     action_type = db.Column(db.String(50), nullable=False)  # 예: "listen", "speak"
     image_url = db.Column(db.String(255), nullable=False)  # 캐릭터 이미지 경로
-    description = db.Column(db.Text, nullable=True)  # 캐릭터 설명
+    register = db.Column(db.DateTime, default=datetime.utcnow)
+    update = db.Column(db.DateTime, nullable=True)
     
     # Many-to-Many relationship between Character and User
     users = db.relationship('UserCharacter', backref='character', lazy=True)
@@ -75,21 +78,21 @@ class AIChat(db.Model):
     __tablename__ = 'ai_chat'
     chat_id = db.Column(db.String(36), primary_key=True, nullable=False)
     user_id = db.Column(db.String(36), db.ForeignKey('user.user_id'), nullable=False)
-    chatDate = db.Column(db.Date, nullable=False)
+    chatDate = db.Column(db.DateTime, nullable=False)  # 기존 db.Date에서 db.DateTime으로 변경
     topic_id = db.Column(db.String(36), db.ForeignKey('topic.topic_id'), nullable=False)
-    pronunciation = db.Column(db.Float)  # 음성평가 항목만 남김
+    pronunciation = db.Column(db.Float)
 
 class AIChatTest(db.Model):
     __tablename__ = 'ai_chat_test'
     chatTest_id = db.Column(db.String(36), primary_key=True, nullable=False)
     user_id = db.Column(db.String(36), db.ForeignKey('user.user_id'), nullable=False)
-    chatDate = db.Column(db.Date, nullable=False)
+    chatDate = db.Column(db.DateTime, nullable=False)  # 기존 db.Date에서 db.DateTime으로 변경
     topic_id = db.Column(db.String(36), db.ForeignKey('topic.topic_id'), nullable=False)
     fluency = db.Column(db.Float)
     grammar = db.Column(db.Float)
     vocabulary = db.Column(db.Float)
-    content = db.Column(db.Float) 
-    simpleEvaluation = db.Column(db.String(255)) 
+    content = db.Column(db.Float)
+    simpleEvaluation = db.Column(db.Text)
 
 class AIChatTestContent(db.Model):
     __tablename__ = 'ai_chat_test_content'

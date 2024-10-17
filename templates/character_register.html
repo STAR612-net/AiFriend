@@ -1,0 +1,105 @@
+<!-- mypage.html 화면 -->
+{% extends "base.html" %}
+
+{% block title %}Ai 영어친구 - 캐릭터 목록 페이지{% endblock %}
+
+{% block head %}
+<link href="{{ url_for('static', filename='css/manager.css') }}" rel="stylesheet">
+{% endblock %}
+
+{% block content %}
+{% if current_user.is_authenticated %}
+<div id="mypage-container" style="overflow-y: auto;">
+    <div id="title_sub"><h2>|| 캐릭터 상세보기</h2></div>
+    <div class="mypage">
+        <div class="user-info" style="width: 25%">
+            <h2>Preview</h2>
+            <img id="mycharacter" alt="캐릭터 이미지">
+            <h3 id="current"></h3>
+        </div>
+        <div class="user-character" style="width: 75%; display: block">
+            <table id="userTable">
+                <tr>
+                    <th>이름</th>
+                    {% if character.classes == 'adult' %}
+                        <th>ADULT 레벨</th>
+                    {% else %}
+                        <th>KID 레벨</th>
+                    {% endif %}
+                    <th>등록일</th>
+                    <th>최종 업데이트</th>
+                </tr>
+                <tr>
+                    <td>{{ character.type }}</td>
+                    <td>{{ count }}</td>
+                    <td>{{ character.first_registered }}</td>
+                    <td>{{ character.last_update }}</td>
+                </tr>
+            </table>
+            <br>
+            <form action="" method="POST">
+                <lable for="level" ><b>레벨: </b></lable>
+                <select onchange="this.form.submit(), refereshImg()" name = "level">
+                    <option value="kid" {% if character.classes == "kid" %} selected {% endif %}>KID</option>
+                    <option value="adult" {% if character.classes == "adult" %} selected {% endif %}>ADULT</option>
+                </select>
+
+                <lable for="action_type" ><b>액션: </b></lable>
+                <select onchange="this.form.submit(), refereshImg()" name = "action_type">
+                    <option value="basic" {% if character.action_type == "basic" %} selected {% endif %}>BASIC</option>
+                    <option value="speak" {% if character.action_type == "speak" %} selected {% endif %}>SPEAK</option>
+                </select>
+            </form>
+            <br>
+            <br>
+            <table id="userTable">
+                <tr>
+                    <th>레벨</th>
+                    <th>URL</th>
+                    <th>선택</th>
+                    <th>파일</th>
+                    <th>등록</th>
+                </tr>
+                {% for i in list %}
+                    <tr>
+                        <td>{{ i.level_code }}</td>
+                        <td>{{ i.image_url }}</td>
+                        <td><button onclick="changeImg('{{ i.image_url}}', {{ i.level_code}})">미리보기</button></td>
+                        <form action="" method="POST" enctype="multipart/form-data">
+                            <td>
+                                <input type="file" name="file">
+                                <input type="hidden" name="level_code" value="{{ i.level_code }}">
+                            </td>
+                            <td>
+                                <input type="submit" value="등록">
+                            </td>
+                        </form>
+                    </tr>
+                {% endfor %} 
+            </table>
+        </div>  
+    </div>
+    
+</div>
+{% else %}
+<p>Please log in to view this page.</p>
+{% endif %}
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const url = "images/characters/{{ character.type }}/{{ character.classes }}/6-{{character.action_type}}.png";
+        document.getElementById('mycharacter').src = '{{ url_for("static", filename="") }}' + url;
+        document.getElementById('current').textContent = '{{ character.action_type }}'.toUpperCase() + ' ' + 6;
+    });
+
+    function changeImg(url, level){
+        document.getElementById('mycharacter').src = '{{ url_for("static", filename="") }}' + url;;
+        document.getElementById('current').textContent = '{{ character.action_type }}'.toUpperCase() + ' ' + level;
+    }
+
+    function refereshImg(){
+        const url = "images/characters/{{ character.type }}/{{ character.classes }}/6-{{character.action_type}}.png";
+        document.getElementById('mycharacter').src = '{{ url_for("static", filename="") }}' + url;
+    }
+</script>
+{% endblock %}
